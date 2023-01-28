@@ -11,4 +11,8 @@ class Kategori extends Model
 
     protected $guarded = [];
 
+    public function pelaporan(){
+        return $this->belongsTo(Pelaporan::class);
+    }
+
 }
