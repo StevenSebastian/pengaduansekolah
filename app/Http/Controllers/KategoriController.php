@@ -82,7 +82,7 @@ class KategoriController extends Controller
     {
         $kategori = Kategori::find($id);
         $kategori->keterangan = $request->get('keterangan');
-        $siswa->save();
+        $kategori->save();
 
         return redirect()->back()->with('message', 'Keterangan berhasil diupdate!');
 
