@@ -73,7 +73,8 @@ class PelaporanController extends Controller
      */
     public function show($id)
     {
-        //
+        $pelaporan = Pelaporan::find($id);
+        return view('pelaporan.detail', compact('pelaporan'));
     }
 
     /**
