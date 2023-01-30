@@ -32,6 +32,8 @@
                         @endforeach
 
                         Foto : <br><img src="{{asset('image')}}/{{$pelaporan->foto}}" width="50%">
+                        <a href="{{route('pelaporan.show', [$pelaporan->id])}}"><button class="btn btn-outline-success"><i class="fas fa-fw fa-eye"></i>
+                        </button></a>
                     </div>
 
 
