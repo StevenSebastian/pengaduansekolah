@@ -26,4 +26,6 @@ Route::resource('kategori', KategoriController::class);
 Route::resource('pelaporan', PelaporanController::class);
 Route::resource('/', PelaporanController::class);
 Route::get('/pelaporanlist', 'PelaporanController@list')->name('list');
+Route::resource('aspirasi', AspirasiController::class);
+
 

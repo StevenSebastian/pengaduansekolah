@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Aspirasi;
 
 class AspirasiController extends Controller
 {
@@ -35,13 +36,13 @@ class AspirasiController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
+
             'status'=>'required',
-            'feedback'=>'required',
-            'status'=>'required'
+            'feedback'=>'required'
         ]);
 
-        Tanggapan::create([
-            'pelaporan_id'=>$request->get('pelaporan_id'),
+        Aspirasi::create([
+
             'status'=>$request->get('status'),
             'feedback'=>$request->get('feedback'),
         ]);
@@ -50,7 +51,7 @@ class AspirasiController extends Controller
             'status'=>$request->get('status')
         ]);
 
-        return redirect()->back()->with('message', 'Tanggapan berhasil dilaporkan!');
+        return redirect()->back()->with('message', 'Aspirasi berhasil dilaporkan!');
     }
     
 
@@ -62,8 +63,8 @@ class AspirasiController extends Controller
      */
     public function show($id)
     {
-        $pelaporan = Pelaporan::find($id);
-        return view('aspirasi.create', compact('pelaporan'));
+        $aspirasi = Aspirasi::find($id);
+        return view('aspirasi.create', compact('aspirasi'));
     }
 
     /**

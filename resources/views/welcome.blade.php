@@ -107,17 +107,19 @@
 
                 <div class="card-body">
                 <div class="form-group">
-                <label for="inputNanme4" class="form-label">Pilih Nama</label>
-        <select name="nama" class="form-control @error('nama') is-invalid @enderror">
-          <option value="">Pilih Siswa</option>
-          @foreach(App\Models\Siswa::all() as $siswa)
-          <option value="{{$siswa->id}}">{{$siswa->nama}}</option>
-          @endforeach
-          </select>
-          @error('nama')
-          <strong>{{ $message }}</strong>
-          @enderror
-        </div>
+                            <label for="nama">Nama</label>
+                            <select name="nama" class="form-control @error('nama') is-invalid @enderror">
+                            <option value="">Pilih siswa</option>
+                            @foreach(App\Models\Siswa::all() as $siswa)
+                            <option value="{{$siswa->id}}">{{$siswa->nama}}</option>
+                            @endforeach 
+                            @error('nama')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </select>
+                    </div>      
                         <br>
                         <div class="form-group">
                             <label for="kategori">Kategori</label>
