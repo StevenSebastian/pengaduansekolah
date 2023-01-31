@@ -16,7 +16,8 @@ class PelaporanController extends Controller
     public function index(Siswa $siswa)
     {
         return view('pelaporan.create', [
-            'siswa' => $siswa
+            'siswa' => '$siswa',
+            'pelaporans' => Pelaporan::latest()->Filter(request(['search']))->paginate(20)->withQueryString(),
         ]);
     }
 
@@ -108,6 +109,15 @@ class PelaporanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $lapor = Pelaporan::find($id);
+        $lapor->delete();
+        return
+        redirect()->back()->with('message','Laporan berhasil dihapus');
     }
+
+    public function profil()
+    {
+        return view('profil');
+    }
+    
 }

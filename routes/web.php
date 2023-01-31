@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/profil', function () {
+    return view('profil');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -24,6 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('siswa', SiswaController::class);
 Route::resource('kategori', KategoriController::class);
 Route::resource('pelaporan', PelaporanController::class);
+Route::resource('profil', 'PelaporanController@profil')->name('profil');
 Route::resource('/', PelaporanController::class);
 Route::get('/pelaporanlist', 'PelaporanController@list')->name('list');
 Route::resource('aspirasi', AspirasiController::class);

@@ -17,7 +17,7 @@ class CreateAspirasisTable extends Migration
             $table->id();
             $table->unsignedBiginteger('pelaporan_id');
             $table->foreign('pelaporan_id')->references('id')->on('pelaporans')->onDelete('cascade');
-            $table->enum('status',['0','proses','selesai'])->default('0');
+            $table->enum('status',['menunggu','proses','selesai'])->default('menunggu');
             $table->text('feedback');
             $table->timestamps();
         });

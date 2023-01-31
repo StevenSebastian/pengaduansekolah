@@ -16,6 +16,12 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">List Pelaporan</div>
+                <!-- Topbar Search -->
+                <br>
+<form class="d-none d-md-flex" action="/pelaporanlist">
+            <input class="form-control border-0" type="search" placeholder="Search" name="search" value="{{ request('search') }}">
+        </form>
+        
 
                 <div class="card-body">
                     <div class="table-responsive">
@@ -44,12 +50,6 @@
                                     <td>{{$pelaporan->keterangan}}</td>
                                     <td>{{$pelaporan->foto}}</td>
 
-                                    <td>
-
-                                    <a href="{{route('pelaporan.edit',[$pelaporan->id])}}"><button
-                                                class="btn btn-outline-success" aria-hidden="true"
-                                                style="font-size:25px"><i class="fa fa-edit"></i></button></a>
-                                    </td>
 
                                     <td>
                                         <!-- Button trigger modal -->

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Aspirasi;
+use App\Models\Pelaporan;
 
 class AspirasiController extends Controller
 {
@@ -35,25 +36,21 @@ class AspirasiController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-
+        $this->validate($request, [
             'status'=>'required',
             'feedback'=>'required'
+
         ]);
 
         Aspirasi::create([
-
+            'pelaporan_id'=>$request->get('pelaporan_id'),
             'status'=>$request->get('status'),
             'feedback'=>$request->get('feedback'),
-        ]);
 
-        Pelaporan::where('id', $request->pelaporan_id)->update([
-            'status'=>$request->get('status')
         ]);
-
-        return redirect()->back()->with('message', 'Aspirasi berhasil dilaporkan!');
+        return
+        redirect('pelaporanlist')->with('masssage','Aspirasi Berhasil tambahkan');
     }
-    
 
     /**
      * Display the specified resource.
@@ -63,8 +60,8 @@ class AspirasiController extends Controller
      */
     public function show($id)
     {
-        $aspirasi = Aspirasi::find($id);
-        return view('aspirasi.create', compact('aspirasi'));
+        $lapor = Pelaporan::find($id);
+        return view ('aspirasi.create', compact('lapor'));
     }
 
     /**

@@ -20,4 +20,11 @@ class Pelaporan extends Model
     public function aspirasi(){
         return $this->hasOne(Aspirasi::class);
     }
+    public function scopeFilter($query, array $filters) {
+      
+        $query->when($filters['search'] ?? false, function($query, $search) {
+          return $query->where('lokasi', 'like', '%' . $search . '%')
+                ->orWhere('keterangan', 'like', '%' . $search . '%');
+        });
+      }
 }

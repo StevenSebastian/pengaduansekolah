@@ -35,7 +35,7 @@
 
                     <div class="form-group">
                         Aspirasi :
-                            @foreach(App\Models\Aspirasi::where('pelaporan_id', $pelaporan->id)->get() as $tanggapan)
+                            @foreach(App\Models\Aspirasi::where('pelaporan_id', $pelaporan->id)->get() as $aspirasi)
 
                             <b>{{$aspirasi->created_at}} - {{$aspirasi->feedback}}</b>
                             <br>
