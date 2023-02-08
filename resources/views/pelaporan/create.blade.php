@@ -49,7 +49,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto active" href="/profil">Profil</a></li>
+          <li><a class="nav-link scrollto active" href="{{ route('profil') }}">Profil</a></li>
           <li><a class="nav-link scrollto active" href="{{ route('login') }}">Login</a></li>
           <li><a class="nav-link scrollto active" href="{{ route('register') }}">Register</a></li>
           <!-- <li><a class="nav-link scrollto" href="#about">About</a></li>
@@ -161,6 +161,39 @@
             </form>
         </div>
     </div>
+</div>
+</div>
+<br>
+<div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+<form class="d-none d-md-flex" action="/pelaporanlist">
+            <input class="form-control border-0" type="search" placeholder="Search" name="search" value="{{ request('search') }}">
+        </form>
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">Kategori</th>
+                                        <th scope="col">Lokasi</th>
+                                        <th scope="col">Keterangan</th>
+                                        <th scope="col">Foto</th>
+
+                                    </tr>
+                                </thead>
+
+                            <tbody>
+                                @foreach($pelaporans as $key=>$pelaporan)
+                                <tr>
+                                    <th scope="row">{{$key+1}}</th>
+                                    <td>{{$pelaporan->siswa_id}}</td>
+                                    <td>{{$pelaporan->kategori_id}}</td>
+                                    <td>{{$pelaporan->lokasi}}</td>
+                                    <td>{{$pelaporan->keterangan}}</td>
+                                    <td><img src="{{asset('image')}}/{{$pelaporan->foto}}" width="100"></td>                                      @endforeach
+</div>
 </div>
 </div>
 

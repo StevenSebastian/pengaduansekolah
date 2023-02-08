@@ -23,7 +23,7 @@ class PelaporanController extends Controller
 
     public function list()
     {
-        return view('pelaporan.index', ['pelaporans' => Pelaporan::all()]);
+        return view('pelaporan.create', ['pelaporans' =>Pelaporan::latest()->Filter(request(['search']))->paginate(20)->withQueryString()]);
     }
 
     /**
@@ -119,5 +119,18 @@ class PelaporanController extends Controller
     {
         return view('profil');
     }
+
+    public function cari(Request $request)
+	{
+    		// mengambil data dari table pegawai sesuai pencarian data
+        $siswas = Siswa::get();
+        $kategoris = Kategori::get();
+        $id=$request->get('nik');
+		$spesifics = Pelaporan::all()->where('nik','=',$id);
+        
+    		// mengirim data pegawai ke view index
+		return view('welcome',compact('spesifics','siswas','kategoris'));
+ 
+	}
     
 }
