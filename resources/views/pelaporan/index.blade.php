@@ -23,21 +23,21 @@
         </form>
         
 
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th scope="col">No</th>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">Kategori</th>
-                                    <th scope="col">Lokasi</th>
-                                    <th scope="col">Keterangan</th>
-                                    <th scope="col">Foto</th>
-                                    <th colspan=3 scope="col">Aksi</th>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">Kategori</th>
+                                        <th scope="col">Lokasi</th>
+                                        <th scope="col">Keterangan</th>
+                                        <th scope="col">Foto</th>
+                                        <th colspan=3 scope="col">Aksi</th>
 
-                                </tr>
-                            </thead>
+                                    </tr>
+                                </thead>
 
                             <tbody>
                                 @if(count($pelaporans)>0)

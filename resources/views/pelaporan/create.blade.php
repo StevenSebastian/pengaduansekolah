@@ -174,7 +174,7 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th scope="col">No</th>
+                                        <th scope="col">No</th>   36
                                         <th scope="col">Nama</th>
                                         <th scope="col">Kategori</th>
                                         <th scope="col">Lokasi</th>
